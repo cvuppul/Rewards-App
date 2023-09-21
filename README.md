@@ -6,10 +6,16 @@ Fetch Rewards is an innovative application that allows users to earn points by s
 
 ## Tech Stack 🛠️
 
-- **Frontend**: React
+- **Frontend**: React, Daisy UI
 - **Styling**: Tailwind.css
 - **Backend**: Node and Express
 - **Unit Testing**: Jest
+
+## 🚀 Deployment
+
+The application is deployed on Netlify for the frontend and Render for the backend, ensuring a seamless and robust user experience.
+
+🌐 Live Site URL: https://650c6e2a40025650922aa37b--bucolic-nougat-302e68.netlify.app
 
 ## Demo 🪄
 
@@ -131,7 +137,69 @@ These tests help in maintaining the integrity of the application and ensuring a 
 
 ![Test Cases Proof](tc.png)
 
-# Running the Service Locally 🚀
+## Running the Service Locally 🚀
+
+Follow these steps to set up and run the project on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed (version 18.15.0 recommended)
+
+### Step 1: Clone or Download the Repository
+
+You can either clone the repository using Git or download the project folder directly from [here](https://github.com/kishore09/fetchrewards).
+
+#### Clone the Repository (via Git):
+
+```bash
+git clone https://github.com/kishore09/fetchrewards.git
+```
+
+### Step 2: Install Dependencies
+
+Install Frontend Dependencies (in the root directory):
+
+```bash
+cd fetchrewards
+npm install
+```
+
+Install Backend Dependencies (inside the 'server' directory):
+
+```bash
+cd server
+npm install
+```
+
+### Step 3: Run the Application
+
+Start the Frontend (in the root directory):
+
+```bash
+npm run dev
+```
+
+This will start the frontend React application.
+
+Start the Backend (inside the 'server/src' directory):
+
+```bash
+cd src
+node app.js
+```
+
+This will start the Node.js backend server.
+
+The application should now be up and running locally. 🎊
+
+## Running Tests
+
+To run tests for the server, navigate to the 'server' directory and execute the following command:
+
+```bash
+cd server
+npm test
+```
 
 ## Conclusion 🌟
 
