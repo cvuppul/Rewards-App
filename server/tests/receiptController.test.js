@@ -1,4 +1,7 @@
-const { calculatePoints } = require("../src/controller/receiptController");
+const {
+  calculatePoints,
+  validateAndSanitizeReceipt,
+} = require("../src/controller/receiptController");
 
 describe("calculatePoints", () => {
   // Test for Receipt 1
@@ -136,21 +139,32 @@ describe("calculatePoints", () => {
   });
 
   // Test Case for invalid date and time formats
+  // Test Case for invalid date and time formats
   it("should throw an error for invalid date and time formats", () => {
     const testDataInvalidDate = {
-      purchaseDate: "2022/03/21",
+      retailer: "Valid Retailer",
+      purchaseDate: "2022/03/21", // Invalid date format
+      purchaseTime: "14:30",
+      items: [{ shortDescription: "Valid Item", price: "1.00" }],
+      total: "1.00",
     };
 
     const testDataInvalidTime = {
-      purchaseTime: "14-30",
+      retailer: "Valid Retailer",
+      purchaseDate: "2022-03-21",
+      purchaseTime: "14-30", // Invalid time format
+      items: [{ shortDescription: "Valid Item", price: "1.00" }],
+      total: "1.00",
     };
 
+    // Expect validateAndSanitizeReceipt to throw an error for invalid date format
     expect(() => {
-      calculatePoints(testDataInvalidDate);
-    }).toThrow();
+      validateAndSanitizeReceipt(testDataInvalidDate);
+    }).toThrow(new Error("Invalid purchase date format"));
 
+    // Expect validateAndSanitizeReceipt to throw an error for invalid time format
     expect(() => {
-      calculatePoints(testDataInvalidTime);
-    }).toThrow();
+      validateAndSanitizeReceipt(testDataInvalidTime);
+    }).toThrow(new Error("Invalid purchase time format"));
   });
 });
